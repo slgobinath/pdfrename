@@ -1,0 +1,2 @@
+# Assuming that pdf-rename.py file is in the home directory.
+python ~/pdf-rename.py
