@@ -8,6 +8,9 @@
 # You need pyPdf Python module to use this script.
 # sudo pip install pyPdf
 
+# You also need pdf Python module to use pyPdf
+# sudo pip install pdf
+
 from pyPdf import PdfFileReader
 import os
 import re
@@ -25,7 +28,9 @@ for fileName in os.listdir('.'):
         # Retrive the Title of the pdf.
         pdfReader = PdfFileReader(file(fileName, "rb"))
         title = pdfReader.getDocumentInfo().title
-
+        # close the pdf
+        pdfReader.stream.close()
+        
         # Not all the PDFs contain the Title meta-info.
         # If the Title info is not available print the "Title: None" message.
         if title is None:
